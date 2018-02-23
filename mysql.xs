@@ -840,7 +840,7 @@ dbd_mysql_get_info(dbh, sql_info_type)
 	    retsv = newSVpvn("`", 1);
 	    break;
 	case SQL_MAXIMUM_STATEMENT_LENGTH:
-#if defined(MYSQL_OPT_NET_BUFFER_LENGTH)
+#if !defined(net_buffer_length)
             ;
 	    unsigned long buffer_len;
 	    mysql_get_option(NULL, MYSQL_OPT_NET_BUFFER_LENGTH, &buffer_len);
